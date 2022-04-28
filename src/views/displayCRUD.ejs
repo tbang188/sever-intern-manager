@@ -1,0 +1,75 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tất cả người dùng - GET CRUD</title>
+    </head>
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        .btn-edit {
+            outline: none;
+            border: none;
+            background: orange;
+            height: 25px;
+            width: 60px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .btn-delete {
+            outline: none;
+            border: none;
+            background: red;
+            height: 25px;
+            width: 60px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <table style="width: 100%">
+            <tr>
+                <th>Tên đầy đủ</th>
+                <th>MSSV</th>
+                <th>Mã lớp</th>
+                <th>Địa chỉ</th>
+                <th>Email</th>
+                <th>Số điện thoại</th>
+                <th>Loại tài khoản</th>
+                <th>Action</th>
+            </tr>
+
+            <% for(let i = 0; i < dataTableUser.length; i++) { %>
+            <tr>
+                <td><%= dataTableUser[i].ho_ten %></td>
+                <td><%= dataTableUser[i].s_id %></td>
+                <td><%= dataTableStudent[i].ma_lop %></td>
+                <td><%= dataTableUser[i].dia_chi %></td>
+                <td><%= dataTableUser[i].email %></td>
+                <td><%= dataTableUser[i].sdt %></td>
+                <td><%= dataTableAccount[i].loai_tai_khoan %></td>
+                <td>
+                    <a
+                        href="/edit-crud?s_id=<%=dataTableUser[i].s_id %>"
+                        class="btn-edit"
+                        type="button"
+                        >Edit</a
+                    >
+                    <a
+                        href="/delete-crud?s_id=<%=dataTableUser[i].s_id %>"
+                        class="btn-delete"
+                        type="button"
+                        >Delete</a
+                    >
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </body>
+</html>
